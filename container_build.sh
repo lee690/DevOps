@@ -4,15 +4,11 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Generate a unique container name based on timestamp
-CONTAINER_NAME="website_$(date +%Y%m%d%H%M%S)"
+CONTAINER_NAME="website_$(date +%Y%m%d%H%M)"
 
-# Build Docker image
-echo "Building Docker image..."
-docker build -t website_server "$SCRIPT_DIR"
+# Build and run Docker containers using docker-compose
+echo "Building and running Docker containers..."
+docker-compose -f "$SCRIPT_DIR/docker-compose.yml" up -d
 
-# Run Docker container
-echo "Running Docker container..."
-docker run --publish 80:80 --name "$CONTAINER_NAME" website_server
-
-echo "Docker container is up and running."
+echo "Docker containers are up and running."
 
