@@ -1,7 +1,15 @@
 version: '3.8'
 services:
- website:
-  build:
-   context: .
-  ports:
-   - 80:80
+  website:
+    build:
+      context: .
+    ports:
+      - 80:80
+
+  unit-tests:
+    volumes:
+      - "$PWD:/app"
+    build: 
+      context: 
+      dockerfile: rspec.dockerfile
+      
