@@ -10,7 +10,7 @@ services:
     volumes:
       - "$PWD:/app"
     build: 
-      context: 
+      context: .
       dockerfile: rspec.dockerfile
     command:
       - --pattern
