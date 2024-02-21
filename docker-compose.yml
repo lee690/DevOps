@@ -14,6 +14,6 @@ services:
       dockerfile: rspec.dockerfile
     command:
       - --pattern
-      - spec/unit/*_spec.rb
+      - /app/spec/unit/*_spec.rb
     
       
